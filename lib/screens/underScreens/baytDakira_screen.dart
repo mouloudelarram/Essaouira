@@ -1,27 +1,25 @@
 import 'package:app/models/Destination.dart';
+import 'package:app/screens/underScreens/underMap_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-import 'underMap_screen.dart';
-
-class DestinationScreen extends StatefulWidget {
+class BaytDakiraScreen extends StatefulWidget {
   final Destination destination;
   final String description;
 
-  const DestinationScreen(
+  const BaytDakiraScreen(
       {Key? key, required this.destination, required this.description})
       : super(key: key);
 
   @override
   // ignore: no_logic_in_create_state
-  _DestinationScreenState createState() =>
+  _BaytDakiraScreenState createState() =>
       // ignore: no_logic_in_create_state
-      _DestinationScreenState(description: description);
+      _BaytDakiraScreenState(description: description);
 }
 
-class _DestinationScreenState extends State<DestinationScreen> {
+class _BaytDakiraScreenState extends State<BaytDakiraScreen> {
   final String description;
-  _DestinationScreenState({required this.description});
+  _BaytDakiraScreenState({required this.description});
   //create costume stars.
   Text _buildRatingStars(int rating) {
     String stars = '  ';
@@ -32,15 +30,8 @@ class _DestinationScreenState extends State<DestinationScreen> {
     return Text(stars);
   }
 
-  void _launchURL() async {
-    if (!await launch('https://visitessaouira.net/'))
-      throw 'Could not launch link';
-  }
-
   @override
   Widget build(BuildContext context) {
-    double w = MediaQuery.of(context).size.width;
-    double h = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -85,55 +76,38 @@ class _DestinationScreenState extends State<DestinationScreen> {
                         color: Colors.black,
                         onPressed: () => Navigator.pop(context),
                       ),
-                      Row(
+                      /*  Row(
                         children: <Widget>[
                           IconButton(
                             icon: const Icon(Icons.search),
                             iconSize: 30.0,
                             color: Colors.black,
-                            onPressed: () async {
-                                await launch( 'https://visitessaouira.net/', forceSafariVC: false);
-                            },
+                            onPressed: () => Navigator.pop(context),
                           ),
-                          if (widget.destination.id < Destinations.length - 1)
-                            IconButton(
-                              icon: const Icon(Icons.arrow_forward),
-                              iconSize: 25.0,
-                              color: Colors.black,
-                              onPressed: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (_) => DestinationScreen(
-                                    description:
-                                        Destinations[widget.destination.id + 1]
-                                            .description,
-                                    destination:
-                                        Destinations[widget.destination.id + 1],
-                                  ),
-                                ),
-                              ),
-                            ),
+                          IconButton(
+                            icon: const Icon(Icons.sort),
+                            iconSize: 25.0,
+                            color: Colors.black,
+                            onPressed: () => Navigator.pop(context),
+                          ),
                         ],
-                      ),
+                      ), */
                     ],
                   ),
                 ),
                 Positioned(
                   left: 20.0,
                   bottom: 20.0,
-                  width: w,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
                         widget.destination.name,
-                        softWrap: true,
-                        textAlign: TextAlign.justify,
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 35.0,
                           fontWeight: FontWeight.w600,
-                          //letterSpacing: 1.2,
+                          letterSpacing: 1.2,
                         ),
                       ),
                       Row(
@@ -177,10 +151,10 @@ class _DestinationScreenState extends State<DestinationScreen> {
                       ),
                     ),
                   ), /* Icon(
-                  Icons.location_on,
-                  color: Colors.white70,
-                  size: 25.0,
-                ), */
+                    Icons.location_on,
+                    color: Colors.white70,
+                    size: 25.0,
+                  ), */
                 ),
               ],
             ),

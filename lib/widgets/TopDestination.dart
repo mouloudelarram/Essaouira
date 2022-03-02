@@ -1,8 +1,7 @@
 import 'package:app/models/Destination.dart';
 import 'package:app/screens/underScreens/destination_screen.dart';
-//import 'package:app/models/destination_model.dart';
-//import 'package:app/screens/underScreens/DestinationScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TopDestination extends StatelessWidget {
   const TopDestination({Key? key}) : super(key: key);
@@ -25,7 +24,7 @@ class TopDestination extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               const Text(
-                'Top Destinations',
+                'Meilleures destinations',
                 style: TextStyle(
                   fontSize: 22.0,
                   fontWeight: FontWeight.bold,
@@ -33,9 +32,12 @@ class TopDestination extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () => print('See All'),
+                onTap: () => () async {
+                  await launch('https://visitessaouira.net/',
+                      forceSafariVC: false);
+                },
                 child: Text(
-                  'See All',
+                  'Voir tout',
                   style: TextStyle(
                     color: Theme.of(context).primaryColor,
                     fontSize: 16.0,
@@ -49,7 +51,7 @@ class TopDestination extends StatelessWidget {
         ),
         // ignore: sized_box_for_whitespace
         Container(
-          height: 200.0,//300
+          height: 200.0, //300
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: Destinations.length,
@@ -106,7 +108,7 @@ class TopDestination extends StatelessWidget {
                           ),
                         ),
                       ),
-                      */ 
+                      */
                       Container(
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -141,7 +143,7 @@ class TopDestination extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Text(
-                                    destination.city,
+                                    destination.name,
                                     style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 24.0,
@@ -159,7 +161,7 @@ class TopDestination extends StatelessWidget {
                                       ),
                                       const SizedBox(width: 5.0),
                                       Text(
-                                        destination.country,
+                                        destination.label,
                                         style: const TextStyle(
                                           color: Colors.white,
                                         ),
@@ -169,7 +171,6 @@ class TopDestination extends StatelessWidget {
                                 ],
                               ),
                             ),
-
                             Positioned(
                               right: 10.0,
                               top: 10.0,
@@ -186,14 +187,15 @@ class TopDestination extends StatelessWidget {
                                     ),
                                   ), */
                                   Text(
-                                  //'${destination.activities.length} activities',
-                                  _buildRatingStars(destination.rating),
-                                  style: const TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600,
-                                    letterSpacing: 1.2,
-                                  ),),
-                                 /*  Row(
+                                    //'${destination.activities.length} activities',
+                                    _buildRatingStars(destination.rating),
+                                    style: const TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600,
+                                      letterSpacing: 1.2,
+                                    ),
+                                  ),
+                                  /*  Row(
                                     children: <Widget>[
                                       const Icon(
                                         //Icons.location_searching,
@@ -213,7 +215,6 @@ class TopDestination extends StatelessWidget {
                                 ],
                               ),
                             ),
-                          
                           ],
                         ),
                       )

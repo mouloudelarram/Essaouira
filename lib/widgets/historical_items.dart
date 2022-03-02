@@ -1,6 +1,8 @@
 import 'package:app/models/Destination.dart';
+import 'package:app/screens/underScreens/underMap_screen.dart';
 //import 'package:app/models/destination_model.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HistoricalItems extends StatelessWidget {
   const HistoricalItems({Key? key}) : super(key: key);
@@ -27,7 +29,7 @@ class HistoricalItems extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               const Text(
-                'Historical destinations',
+                'Destinations historiques',
                 style: TextStyle(
                   fontSize: 22.0,
                   fontWeight: FontWeight.bold,
@@ -35,9 +37,12 @@ class HistoricalItems extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () => print('See All'),
+                onTap: () async {
+                  await launch('https://visitessaouira.net/',
+                      forceSafariVC: false);
+                },
                 child: Text(
-                  'See All',
+                  'Voir tout',
                   style: TextStyle(
                     color: Theme.of(context).primaryColor,
                     fontSize: 16.0,
@@ -58,106 +63,116 @@ class HistoricalItems extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               Destination destination = Destinations[index];
               if (destination.type == 'historical') {
-                return Container(
-                  margin: const EdgeInsets.all(10.0),
-                  width: 340.0,
-                  child: Stack(
-                    alignment: Alignment.topCenter,
-                    children: <Widget>[
-                      Positioned(
-                        bottom: 15.0,
-                        child: Container(
-                          height: w,
-                          width: 340.0,
+                return GestureDetector(
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => UnderMapScreen(
+                        currentDestination: destination,
+                      ),
+                    ),
+                  ),
+                  child: Container(
+                    margin: const EdgeInsets.all(10.0),
+                    width: 340.0,
+                    child: Stack(
+                      alignment: Alignment.topCenter,
+                      children: <Widget>[
+                        Positioned(
+                          bottom: 15.0,
+                          child: Container(
+                            height: w,
+                            width: 340.0,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: <Widget>[
+                                  SizedBox(height: w - 120),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        destination.name,
+                                        style: const TextStyle(
+                                          fontSize: 22.0,
+                                          fontWeight: FontWeight.w600,
+                                          letterSpacing: 1.2,
+                                        ),
+                                        textAlign: TextAlign.left,
+                                      ),
+                                      const Spacer(),
+                                      Text(
+                                        _buildRatingStars(destination.rating),
+                                        style: const TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w600,
+                                          letterSpacing: 1.2,
+                                        ),
+                                        textAlign: TextAlign.end,
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 2.0),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        destination.address,
+                                        style: const TextStyle(
+                                          color: Colors.cyan,
+                                        ),
+                                        textAlign: TextAlign.left,
+                                      ),
+                                      Container()
+                                    ],
+                                  ),
+                                  const SizedBox(height: 2.0),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        destination.label,
+                                        style: const TextStyle(
+                                          fontSize: 18.0,
+                                          color: Colors.grey,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      Container(),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 2.0),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
                           decoration: BoxDecoration(
                             color: Colors.white,
-                            borderRadius: BorderRadius.circular(10.0),
+                            borderRadius: BorderRadius.circular(20.0),
+                            boxShadow: const [
+                              BoxShadow(
+                                color: Colors.black26,
+                                offset: Offset(0.0, 2.0),
+                                blurRadius: 6.0,
+                              ),
+                            ],
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: <Widget>[
-                                SizedBox(height: w - 120),
-                                Row(
-                                  children: [
-                                    Text(
-                                      destination.name,
-                                      style: const TextStyle(
-                                        fontSize: 22.0,
-                                        fontWeight: FontWeight.w600,
-                                        letterSpacing: 1.2,
-                                      ),
-                                      textAlign: TextAlign.left,
-                                    ),
-                                    const Spacer(),
-                                    Text(
-                                      _buildRatingStars(destination.rating),
-                                      style: const TextStyle(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w600,
-                                        letterSpacing: 1.2,
-                                      ),
-                                      textAlign: TextAlign.end,
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(height: 2.0),
-                                Row(
-                                  children: [
-                                    Text(
-                                      destination.address,
-                                      style: const TextStyle(
-                                        color: Colors.cyan,
-                                      ),
-                                      textAlign: TextAlign.left,
-                                    ),
-                                    Container()
-                                  ],
-                                ),
-                                const SizedBox(height: 2.0),
-                                Row(
-                                  children: [
-                                    Text(
-                                      destination.label,
-                                      style: const TextStyle(
-                                        fontSize: 18.0,
-                                        color: Colors.grey,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                    Container(),
-                                  ],
-                                ),
-                                const SizedBox(height: 2.0),
-                              ],
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(20.0),
+                            child: Image(
+                              height: w - 50,
+                              width: w,
+                              image: AssetImage(destination.imageUrl),
+                              fit: BoxFit.cover,
                             ),
                           ),
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20.0),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Colors.black26,
-                              offset: Offset(0.0, 2.0),
-                              blurRadius: 6.0,
-                            ),
-                          ],
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20.0),
-                          child: Image(
-                            height: w - 50,
-                            width: w,
-                            image: AssetImage(destination.imageUrl),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      )
-                    ],
+                        )
+                      ],
+                    ),
                   ),
                 );
               } else {
@@ -167,7 +182,7 @@ class HistoricalItems extends StatelessWidget {
           ),
         ),
         const Text(
-          'Visit Essaouira',
+          'Visiter la ville d\'Essaouira.',
           style: TextStyle(fontSize: 13, color: Colors.black12),
         ),
       ],

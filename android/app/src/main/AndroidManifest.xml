@@ -1,5 +1,31 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.app">
+
+             
+            <queries>
+                <!-- If your app opens https URLs -->
+                <intent>
+                    <action android:name="android.intent.action.VIEW" />
+                    <data android:scheme="https" />
+                </intent>
+                <!-- If your app makes calls -->
+                <intent>
+                    <action android:name="android.intent.action.DIAL" />
+                    <data android:scheme="tel" />
+                </intent>
+                <!-- If your sends SMS messages -->
+                <intent>
+                    <action android:name="android.intent.action.SENDTO" />
+                    <data android:scheme="smsto" />
+                </intent>
+                <!-- If your app sends emails -->
+                <intent>
+                    <action android:name="android.intent.action.SEND" />
+                    <data android:mimeType="*/*" />
+                </intent>
+            </queries>
+
+            
    <application
         android:label="app"
         android:name="${applicationName}"
@@ -33,5 +59,7 @@
         <!-- google map configuration -->
             <meta-data android:name="com.google.android.geo.API_KEY"
                android:value="AIzaSyB6Q8ed3IuTbiYiezWyooYTVJdFx3wf-Vs"/> <!-- we chnage the Key word -->
+           
+    
     </application>
 </manifest>
