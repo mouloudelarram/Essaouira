@@ -32,7 +32,7 @@ class TopDestination extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () => () async {
+                onTap: () async {
                   await launch('https://visitessaouira.net/',
                       forceSafariVC: false);
                 },

@@ -3,6 +3,7 @@ import 'package:app/widgets/TopDestination.dart';
 import 'package:app/widgets/historical_items.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'underScreens/aboutUs_Screen.dart';
 import 'underScreens/baytDakira_screen.dart';
@@ -92,7 +93,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => BaytDakiraScreen(description: BaytDakira.description, destination: BaytDakira,),
+                      builder: (_) => BaytDakiraScreen(
+                        description: BaytDakira.description,
+                        destination: BaytDakira,
+                      ),
                     ),
                   ),
                   child: Row(
@@ -125,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(left: w*0.2),
+                margin: EdgeInsets.only(left: w * 0.2),
                 child: GestureDetector(
                   onTap: () => Navigator.push(
                     context,
@@ -142,8 +146,54 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           const SizedBox(height: 20.0),
           const TopDestination(), //class 1
+          const SizedBox(height: 20.0),
+          Container(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      const Text(
+                        'à propos de Essaouira',
+                        style: TextStyle(
+                          fontSize: 22.0,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1.5,
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () async {
+                          await launch('https://visitessaouira.net/',
+                              forceSafariVC: false);
+                        },
+                        child: Text(
+                          '',
+                          style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 1.0,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child: Text(
+                    "         Essaouira (anciennement appelée Mogador par les Portugais, en arabe : الصويرة aṣ-Ṣawîrah, en tachelhit : ⵜⴰⵚⵚⵓⵕⵜ Taṣṣuṛt) est une ville portuaire et une commune du Maroc, chef-lieu de la province d'Essaouira, dans la région de Marrakech-Safi.",
+                    textAlign: TextAlign.justify,
+                  ),
+                ),
+              ],
+            ),
+          ),
           const SizedBox(height: 20.0), //class 2
           const HistoricalItems(),
+          const SizedBox(height: 20.0),
         ],
       ),
     );

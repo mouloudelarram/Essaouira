@@ -52,7 +52,7 @@ class _MainScreenState extends State<MainScreen> {
                   'assets/images/user.jpg'), //NetworkImage('http://i.imgur.com/zL4Krbz.jpg'),
             ),
             label: 'profil',
-          )
+          ) 
         ],
       ),
     );
