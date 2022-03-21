@@ -3,8 +3,8 @@ import 'package:app/screens/underScreens/destination_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class TopDestination extends StatelessWidget {
-  const TopDestination({Key? key}) : super(key: key);
+class Items extends StatelessWidget {
+  const Items({Key? key}) : super(key: key);
   String _buildRatingStars(int rating) {
     String stars = '';
     for (int i = 0; i < rating; i++) {

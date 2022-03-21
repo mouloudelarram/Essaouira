@@ -40,6 +40,7 @@ dependencies:
   url_launcher: ^6.0.20
   flutter_svg: ^1.0.3
   firebase_auth: ^3.3.8
+  flutter_polyline_points: ^1.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

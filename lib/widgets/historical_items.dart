@@ -31,7 +31,7 @@ class HistoricalItems extends StatelessWidget {
               const Text(
                 'Destinations historiques',
                 style: TextStyle(
-                  fontSize: 22.0,
+                  fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1.5,
                 ),

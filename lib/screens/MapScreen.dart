@@ -185,7 +185,7 @@ class _MapScreenState extends State<MapScreen> {
             ),
           ),
           Positioned(
-            bottom: 60,
+            bottom: h*0.1,
             left: 0,
             width: w,
             child: (item == true)

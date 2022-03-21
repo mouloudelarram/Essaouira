@@ -2,8 +2,6 @@ import 'package:app/screens/underScreens/help_Screen.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'underScreens/aboutUs_Screen.dart';
-
 class ProfilScreen extends StatefulWidget {
   const ProfilScreen({Key? key}) : super(key: key);
 
@@ -51,7 +49,12 @@ class _ProfilScreenState extends State<ProfilScreen> {
                                 borderRadius: BorderRadius.circular(15)),
                             backgroundColor: const Color(0xFFFFECDF),
                           ),
-                          onPressed: () => {},
+                          onPressed: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const HelpScreen(),
+                            ),
+                          ),
                           child: Row(
                             children: const [
                               Icon(
@@ -111,7 +114,7 @@ class _ProfilScreenState extends State<ProfilScreen> {
                           onPressed: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => HelpScreen(),
+                              builder: (_) => const HelpScreen(),
                             ),
                           ),
                           child: Row(
