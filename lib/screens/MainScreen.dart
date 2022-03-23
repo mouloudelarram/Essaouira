@@ -2,6 +2,7 @@ import 'package:app/screens/MapScreen.dart';
 import 'package:app/screens/ProfilScreen.dart';
 import 'package:flutter/material.dart';
 
+import '../models/Destination.dart';
 import 'HomeScreen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -25,6 +26,7 @@ class _MainScreenState extends State<MainScreen> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentTab,
         onTap: (int value) {
+          fillList();
           setState(() {
             _currentTab = value;
           });
@@ -52,7 +54,7 @@ class _MainScreenState extends State<MainScreen> {
                   'assets/images/user.jpg'), //NetworkImage('http://i.imgur.com/zL4Krbz.jpg'),
             ),
             label: 'profil',
-          ) 
+          )
         ],
       ),
     );

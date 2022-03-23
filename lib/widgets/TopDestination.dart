@@ -131,7 +131,7 @@ class TopDestination extends StatelessWidget {
                                 child: Image(
                                   height: 180.0,
                                   width: 200.0,
-                                  image: AssetImage(destination.imageUrl),
+                                  image: NetworkImage(destination.imageUrl), //AssetImage(destination.imageUrl),
                                   fit: BoxFit.cover,
                                 ),
                               ),

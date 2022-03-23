@@ -233,8 +233,8 @@ class _MapScreenState extends State<MapScreen> {
                                                   child: Image(
                                                     height: 150,
                                                     width: w * 0.8,
-                                                    image: AssetImage(
-                                                        destination.imageUrl),
+                                                    image: NetworkImage(destination.imageUrl),/* AssetImage(
+                                                        destination.imageUrl), */
                                                     fit: BoxFit.cover,
                                                   ),
                                                 ),

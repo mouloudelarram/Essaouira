@@ -1,3 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+
+import '../main.dart';
+
 class Destination {
   int id;
   String imageUrl;
@@ -39,7 +44,8 @@ class Destination {
 }
 
 List<Destination> Destinations = [
-  Destination(
+  /* Destination(
+    
     id: 0,
     imageUrl: 'assets/images/darsouiri.jpg',
     city: 'Essaouira',
@@ -59,7 +65,7 @@ List<Destination> Destinations = [
     snippet: 'Un lieu historique',
     category: 'special',
   ),
-  Destination(
+   Destination(
     id: 1,
     imageUrl: 'assets/images/latourdehorloge.jpg',
     city: 'Essaouira',
@@ -178,7 +184,7 @@ List<Destination> Destinations = [
     title: 'Face à l\'océan',
     snippet: 'l\'océan',
     category: 'normale',
-  ),
+  ), */
 /*   Destination(
     id: 7,
     imageUrl: 'assets/images/mosqueedekasbah.jpg',
@@ -221,3 +227,42 @@ Destination BaytDakira = Destination(
   snippet: 'destination historique',
   category: 'destination historique',
 );
+
+void fillList() {
+  print('----------------------------------------------');
+  FirebaseFirestore.instance
+      .collection('destination')
+      .orderBy('id')
+      .get()
+      .then((QuerySnapshot querySnapshot) {
+    Destinations.clear();
+    querySnapshot.docs.forEach((doc) {
+      print('********************************************');
+      print(doc.get('name'));
+      print('********************************************');
+      Destinations.add(
+        Destination(
+          id: doc.get('id'),
+          imageUrl: doc.get('imageUrl'),
+          city: doc.get('city'),
+          country: doc.get('country'),
+          description: doc.get('description'),
+          label: doc.get('label'),
+          type: doc.get('type'),
+          name: doc.get('name'),
+          address: doc.get('address'),
+          rating: doc.get('rating'),
+          markerId: doc.get('markerId'),
+          latitude: double.parse(doc.get('latitude').toString()),
+          longitude: double.parse(doc.get('longitude').toString()),
+          icon: doc.get('icon'),
+          title: doc.get('title'),
+          snippet: doc.get('snippet'),
+          category: doc.get('category'),
+        ),
+      );
+    });
+    runApp(const MyApp());
+  });
+  print('----------------------------------------------');
+}

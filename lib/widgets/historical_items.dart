@@ -166,7 +166,7 @@ class HistoricalItems extends StatelessWidget {
                             child: Image(
                               height: w - 50,
                               width: w,
-                              image: AssetImage(destination.imageUrl),
+                              image: NetworkImage(destination.imageUrl),//AssetImage(destination.imageUrl),
                               fit: BoxFit.cover,
                             ),
                           ),

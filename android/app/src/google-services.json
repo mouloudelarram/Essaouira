@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "734685165889",
+    "project_id": "essaouira-380b0",
+    "storage_bucket": "essaouira-380b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734685165889:android:c31a7ee0d2c385589a09c0",
+        "android_client_info": {
+          "package_name": "com.essaouira.admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "734685165889-lqe0mn8vj2h7u0ro9rk5t8gbtrp4bj9e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtrb-rLqfZObjKNywGHy_zW_jEabRI-mk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "734685165889-lqe0mn8vj2h7u0ro9rk5t8gbtrp4bj9e.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "734685165889-e95i44cfgoq34hdi7u9o08ath2bplkci.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.essaouira.admin"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734685165889:android:559f7c01aff8b2459a09c0",
+        "android_client_info": {
+          "package_name": "com.essaouira.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "734685165889-lqe0mn8vj2h7u0ro9rk5t8gbtrp4bj9e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtrb-rLqfZObjKNywGHy_zW_jEabRI-mk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "734685165889-lqe0mn8vj2h7u0ro9rk5t8gbtrp4bj9e.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "734685165889-e95i44cfgoq34hdi7u9o08ath2bplkci.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.essaouira.admin"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

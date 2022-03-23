@@ -67,7 +67,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                           bottomRight: Radius.circular(30)), //circular(30.0),
                       child: Image(
                         width: MediaQuery.of(context).size.width,
-                        image: AssetImage(widget.destination.imageUrl),
+                        image: NetworkImage(widget.destination.imageUrl),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -92,7 +92,8 @@ class _DestinationScreenState extends State<DestinationScreen> {
                             iconSize: 30.0,
                             color: Colors.black,
                             onPressed: () async {
-                                await launch( 'https://visitessaouira.net/', forceSafariVC: false);
+                              await launch('https://visitessaouira.net/',
+                                  forceSafariVC: false);
                             },
                           ),
                           if (widget.destination.id < Destinations.length - 1)
