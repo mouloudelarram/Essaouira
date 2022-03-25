@@ -27,7 +27,7 @@
 
             
    <application
-        android:label="app"
+        android:label="Guide"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
