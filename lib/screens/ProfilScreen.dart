@@ -146,7 +146,7 @@ class _ProfilScreenState extends State<ProfilScreen> {
                           ),
                           onPressed: () async {
                             await launch(
-                                'mailto:mouloudelarram@gmail.com?subject=feedback app Essaouira&body=');
+                                'mailto:contact@guide.ma?subject=feedback app Essaouira&body=');
                           },
                           child: Row(
                             children: const [
